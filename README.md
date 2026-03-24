@@ -1,6 +1,6 @@
 ## VTT MANAGER
 
-Aplicación de escritorio Python para manejar un VTT (Virtual Table Top). Está basado en mi proyecto de fin de curso, en el que estoy desarrollando un VTT, y me pareció buena idea probra a usar esta tecnología como prueba para un posible cambio en el desarrollo.
+Aplicación de escritorio Python para manejar un VTT (Virtual Table Top). Está basado en mi proyecto de fin de curso, en el que estoy desarrollando un VTT, y me pareció buena idea usar esta tecnología como prueba para un posible cambio en el desarrollo.
 
 ## Tecnologías
 - Python 3.x + Tkinter (interfaz gráfica)
