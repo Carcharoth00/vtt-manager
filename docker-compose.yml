@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: vtt_postgres
+    environment:
+      POSTGRES_USER: vtt_admin
+      POSTGRES_PASSWORD: vtt_password
+      POSTGRES_DB: vtt_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - vtt_data:/var/lib/postgresql/data
+
+volumes:
+  vtt_data:

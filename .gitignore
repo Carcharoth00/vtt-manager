@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# Imágenes subidas por usuarios
+uploads/
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema
+Thumbs.db
+.DS_Store
