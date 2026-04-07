@@ -12,21 +12,23 @@ Aplicación de escritorio Python para manejar un VTT (Virtual Table Top). Está 
 ## Instalación
 
 1. Clona el repositorio:
-   git clone https://github.com/tu-usuario/vtt-manager.git
+   git clone https://github.com/Carcharoth00/vtt-manager.git
    cd vtt-manager
 
 2. Instala las dependencias:
-   pip install psycopg2-binary pillow
+   pip install -r requirements.txt
 
-3. Levanta la base de datos:
+3. Levanta la base de datos (solo la primera vez):
    docker-compose up -d
 
-4. Crea las tablas:
-   docker cp schema.sql vtt_postgres:/schema.sql
-   docker exec -it vtt_postgres psql -U vtt_admin -d vtt_database -f /schema.sql
+4. Ejecuta la aplicacion:
+   - Doble clic en iniciar.bat
+   - O desde terminal: python main.py
 
-5. Ejecuta la aplicación:
-   python main.py
+NOTA:
+>Si ya tenias el contenedor creado sin el schema, debes recrearlo:
+>docker-compose down -v
+>docker-compose up -d
 
 ## Estructura del proyecto
 vtt-manager/

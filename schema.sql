@@ -76,3 +76,41 @@ CREATE TABLE mapas (
     archivo_ruta  VARCHAR(255),
     notas         TEXT
 );
+
+-- ============================================
+-- DATOS DE EJEMPLO
+-- ============================================
+
+-- Usuarios (contraseñas en texto plano: gandalf→"admin", frodo→"1234")
+INSERT INTO usuarios (id, nombre_usuario, email, contrasena_hash) VALUES
+  ('a0000000-0000-0000-0000-000000000001', 'gandalf', 'gandalf@ejemplo.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'),
+  ('a0000000-0000-0000-0000-000000000002', 'frodo',   'frodo@ejemplo.com',   '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
+
+-- Campañas
+INSERT INTO campanas (id, nombre, estado, descripcion) VALUES
+  ('b0000000-0000-0000-0000-000000000001', 'La Sombra del Norte', 'activa',   'Una campaña épica en las tierras del norte.'),
+  ('b0000000-0000-0000-0000-000000000002', 'El Retorno del Rey',  'pausada',  'La batalla final por la Tierra Media.');
+
+-- Miembros de campaña
+INSERT INTO campanas_usuarios (campana_id, usuario_id, rol) VALUES
+  ('b0000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000001', 'master'),
+  ('b0000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000002', 'jugador'),
+  ('b0000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000002', 'master'),
+  ('b0000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000001', 'jugador');
+
+-- Personajes
+INSERT INTO personajes (id, campana_id, usuario_id, nombre, raza, clase, nivel, experiencia) VALUES
+  ('c0000000-0000-0000-0000-000000000001', 'b0000000-0000-0000-0000-000000000001', 'a0000000-0000-0000-0000-000000000002', 'Aragorn',  'Humano', 'Guerrero', 5, 6500),
+  ('c0000000-0000-0000-0000-000000000002', 'b0000000-0000-0000-0000-000000000002', 'a0000000-0000-0000-0000-000000000001', 'Legolas',  'Elfo',   'Arquero',  4, 4200);
+
+-- Estadísticas
+INSERT INTO estadisticas (personaje_id, fuerza, destreza, constitucion, inteligencia, sabiduria, carisma, vida_max, vida_actual) VALUES
+  ('c0000000-0000-0000-0000-000000000001', 18, 14, 16, 12, 13, 15, 52, 52),
+  ('c0000000-0000-0000-0000-000000000002', 12, 20, 12, 14, 16, 17, 38, 30);
+
+-- Inventario
+INSERT INTO inventario (personaje_id, nombre_objeto, tipo, descripcion, cantidad) VALUES
+  ('c0000000-0000-0000-0000-000000000001', 'Andúril',        'Arma',    'La llama del oeste, espada de los Reyes de Númenor.', 1),
+  ('c0000000-0000-0000-0000-000000000001', 'Cota de malla',  'Armadura','Armadura de acero forjada en el norte.', 1),
+  ('c0000000-0000-0000-0000-000000000002', 'Arco de Lothlórien', 'Arma', 'Arco élfico de gran precisión.', 1),
+  ('c0000000-0000-0000-0000-000000000002', 'Carcaj de flechas', 'Munición','30 flechas élficas.', 30);

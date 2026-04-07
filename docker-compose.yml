@@ -12,6 +12,8 @@ services:
       - "5432:5432"
     volumes:
       - vtt_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
 
 volumes:
   vtt_data:

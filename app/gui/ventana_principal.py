@@ -332,6 +332,7 @@ class VentanaPrincipal:
             command=self._editar_estadisticas).pack(side="left", padx=5)
 
         self._cargar_combos_personajes()
+        self._cargar_personajes()
 
     def _cargar_combos_personajes(self):
         campanas = obtener_campanas() or []
