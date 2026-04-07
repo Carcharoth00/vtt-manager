@@ -1,8 +1,13 @@
+import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
 """ Módulo para manejar la conexión a la base de datos PostgreSQL y ejecutar consultas SQL.
 Proporciona funciones para abrir conexiones, ejecutar consultas con parámetros y manejar errores."""
+
+# Evita que psycopg2 intente leer pgpass.conf, cuya codificación puede
+# diferir de UTF-8 en sistemas Windows con configuración regional en español.
+os.environ.setdefault('PGPASSFILE', os.devnull)
 
 # Datos de conexión (son los de docker-compose.yml)
 DB_CONFIG = {
