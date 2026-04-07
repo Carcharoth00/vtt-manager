@@ -1,22 +1,22 @@
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
-
-""" Módulo para manejar la conexión a la base de datos PostgreSQL y ejecutar consultas SQL.
-Proporciona funciones para abrir conexiones, ejecutar consultas con parámetros y manejar errores."""
+from dotenv import load_dotenv
 
 # Evita que psycopg2 intente leer pgpass.conf, cuya codificación puede
 # diferir de UTF-8 en sistemas Windows con configuración regional en español.
 os.environ.setdefault('PGPASSFILE', os.devnull)
 
-# Datos de conexión (son los de docker-compose.yml)
+load_dotenv()
+
 DB_CONFIG = {
-    "host":     "localhost",
-    "port":     5432,
-    "dbname":   "vtt_database",
-    "user":     "vtt_admin",
-    "password": "vtt_password"
+    "host":     os.getenv("DB_HOST", "localhost"),
+    "port":     int(os.getenv("DB_PORT", 5432)),
+    "dbname":   os.getenv("DB_NAME"),
+    "user":     os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
 }
+
 
 #Funciones
 
